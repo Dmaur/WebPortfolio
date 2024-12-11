@@ -39,6 +39,7 @@ export default function Home() {
             <StackIcon name="js" />
             <StackIcon name="reactjs" />
             <StackIcon name="csharp" />
+            <StackIcon name="java" />
             <StackIcon name="bootstrap5" />
             <StackIcon name="tailwindcss" />
             <StackIcon name="git" />
