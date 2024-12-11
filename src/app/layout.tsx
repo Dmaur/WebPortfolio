@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "boilerplate-nextjs-mongo",
-  description: "The boilerplate starting project folder for PROG3017",
+  title: "Derrick Maurais",
+  description: "Portfolio Website",
 };
 
-export default function RootLayout({ children }:Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
   return (
     <html lang="en">
-      <body>
+      <body className="bg-dark_green font-robotoMono">
         {children}
       </body>
     </html>
