@@ -1,7 +1,7 @@
 export default function Navigation() {
     return (
         <>
-            <div className="h-[65vh] flex flex-col justify-evenly ">
+            <div className="h-[65vh] flex flex-col justify-evenly lg:flex-row">
                 <button className="text-3xl font-ibmPlexMono text-mindaro">DERRICK MAURAIS</button>
                 <button className="text-3xl font-ibmPlexMono text-mindaro">IN THE WORKS</button>
                 <button className="text-3xl font-ibmPlexMono text-mindaro">STUFF I HAVE DONE</button>
