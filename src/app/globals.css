@@ -1,12 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin+Sketch:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1{
+button:hover{
   text-shadow: #FC0 1px 0 10px;
+  color: white;
 }
 
 p:hover{
@@ -14,22 +18,3 @@ p:hover{
   color: white;
 }
 
-#navBar a:first-of-type {
-    text-shadow: #0a210f 1px 0 10px;
-
-  }
-
-  #navBar1 a:nth-of-type(2) {
-    text-shadow: #0a210f 1px 0 10px;
-
-  }
-
-  #navBar2 a:nth-of-type(3) {
-    text-shadow: #0a210f 1px 0 10px;
-
-  }
-
-  #navBar3 a:nth-of-type(4) {
-    text-shadow: #0a210f 1px 0 10px;
-
-  }

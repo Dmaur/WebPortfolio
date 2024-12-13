@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import Header from "@/components/header";
 export const metadata: Metadata = {
   title: "Derrick Maurais",
   description: "Portfolio Website",
@@ -10,7 +10,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-dark_green font-spaceGrotesk">
+      <body className="bg-violet">
+        <Header/>
         {children}
       </body>
     </html>
