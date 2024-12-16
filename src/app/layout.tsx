@@ -10,8 +10,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-rich_black">
-        <Header/>
+      <body className="bg-rich_black font-ibmPlexMono m-0">
         {children}
       </body>
     </html>

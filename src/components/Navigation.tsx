@@ -9,7 +9,7 @@ interface stateProps {
 
 export default function Navigation({ siteState, setSiteState }: stateProps) {
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
     useEffect(() => {
         const handleResize = () => setScreenWidth(window.innerWidth);
@@ -20,57 +20,56 @@ export default function Navigation({ siteState, setSiteState }: stateProps) {
     const isLarge = screenWidth > 1023;
 
     const handleSelect = (n: number) => {
-        console.log(screenWidth)
-        if (siteState != n) {
-            setSiteState(n)
-        } else {
-            setSiteState(0)
-        }
+        siteState != n ? setSiteState(n) : setSiteState(0);
     }
 
 
 
     return (
         <>
-            <div className="h-[65vh] flex flex-col justify-evenly lg:flex-row">
+            <div className="h-[65vh] flex flex-col justify-evenly lg:flex-row lg:h-[30vh]">
                 <button
                     onClick={() => handleSelect(1)}
-                    className="text-3xl font-ibmPlexMono text-beige">ABOUT ME</button>
-                <div className={` ${siteState == 1 && !isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                    <About />
+                    className="text-3xl text-beige mb-1.5">_ABOUT</button>
+                <div className={` ${siteState == 1 && !isLarge ? "justify-center mx-14 bg-glaucous rounded" : "hidden"}`}>
+                    <About screen={screenWidth} />
                 </div>
                 <button
                     onClick={() => handleSelect(2)}
-                    className="text-3xl font-ibmPlexMono text-beige">WORKING</button>
+                    className="text-3xl text-beige m-6">_PROJECTS</button>
                 <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                    <About />
+                    <About screen={screenWidth} />
                 </div>
                 <button
                     onClick={() => handleSelect(3)}
-                    className="text-3xl font-ibmPlexMono text-beige">OTHER</button>
+                    className="text-3xl text-beige m-6">_SKILLS</button>
                 <div className={`${siteState == 3 && !isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                    <About />
+                    <About screen={screenWidth} />
                 </div>
                 <button
                     onClick={() => handleSelect(4)}
-                    className="text-3xl font-ibmPlexMono text-beige">GET IN TOUCH</button>
+                    className="text-3xl text-beige m-6">_CONTACT</button>
                 <div className={`${siteState == 4 && !isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                    <About />
+                    <About screen={screenWidth} />
                 </div>
             </div>
 
-            <div className={` ${siteState == 1 && isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                <About />
+            <div className="w-[85vw] justify-self-center">
+                <div className={` ${siteState == 1 && isLarge ? "justify-center mx-5 bg-bittersweet rounded" : "hidden"}`}>
+                    <About screen={screenWidth} />
+                </div>
+                <div className={`${siteState == 2 && isLarge ? "justify-center mx-5 bg-bittersweet rounded" : "hidden"}`}>
+                    <About screen={screenWidth} />
+                </div>
+                <div className={`${siteState == 3 && isLarge ? "justify-center mx-5 bg-bittersweet rounded" : "hidden"}`}>
+                    <About screen={screenWidth} />
+                </div>
+                <div className={`${siteState == 4 && isLarge ? "justify-center mx-5 bg-bittersweet rounded" : "hidden"}`}>
+                    <About screen={screenWidth} />
+                </div>
+
             </div>
-            <div className={`${siteState == 2 && isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                <About />
-            </div>
-            <div className={`${siteState == 3 && isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                <About />
-            </div>
-            <div className={`${siteState == 4 && isLarge ? "justify-center mx-14 bg-bittersweet rounded" : "hidden"}`}>
-                <About />
-            </div>
+
 
         </>
     )
