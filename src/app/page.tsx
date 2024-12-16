@@ -6,11 +6,12 @@ import { useState } from "react";
 
 export default function Home() {
 
-  const [siteState, changeSiteState] = useState("0");
+  const [siteState, setSiteState] = useState<number>(0);
 
   return (
     <>
-     <Navigation/>
+     <Navigation siteState={siteState}
+                 setSiteState={setSiteState}/>
 
     </>
   );
