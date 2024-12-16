@@ -30,7 +30,7 @@ export default function Navigation({ siteState, setSiteState }: stateProps) {
             <div className="h-[65vh] flex flex-col justify-evenly lg:flex-row lg:h-[30vh]">
                 <button
                     onClick={() => handleSelect(1)}
-                    className="text-3xl text-beige mb-1.5">_ABOUT</button>
+                    className="text-3xl text-beige mt-4 mb-1.5">_ABOUT</button>
                 <div className={` ${siteState == 1 && !isLarge ? "justify-center mx-14 bg-glaucous rounded" : "hidden"}`}>
                     <About screen={screenWidth} />
                 </div>
