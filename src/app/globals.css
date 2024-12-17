@@ -9,13 +9,8 @@
 @tailwind utilities;
 
 button:hover{
-  text-shadow: #fe5f55 1px 0 10px;
-  font-size:xx-large;
-  
-}
-
-p:hover{
-  text-shadow:#FC0  5px 0 10px;
+  text-shadow: #FC0 10px 0 30px;
   color: white;
 }
+
 

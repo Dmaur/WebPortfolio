@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Derrick Maurais",
   description: "Portfolio Website",
@@ -10,9 +11,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-rich_black font-ibmPlexMono m-0">
-        {children}
+      <body className="bg-rich_black min-h-screen font-ibmPlexMono m-0">
+        <div className="flex-1 overflow-auto">
+          {children}
+        </div>
       </body>
+
+      {/* <div className="bg-ash_gray absolute bottom-3 left-0 ">
+        <Footer />
+      </div> */}
+      <footer className="bg-ash_gray opacity-25 absolute bottom-3 left-0 ">
+        <Footer/>
+      </footer>
+
+
     </html>
   );
 }
