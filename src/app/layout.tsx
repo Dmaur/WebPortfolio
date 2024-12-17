@@ -11,15 +11,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-rich_black min-h-screen font-ibmPlexMono m-0">
+      <body className="bg-rich_black min-h-screen font-changa m-0 text-beige">
         <div className="flex-1 overflow-auto">
           {children}
         </div>
       </body>
-
-      {/* <div className="bg-ash_gray absolute bottom-3 left-0 ">
-        <Footer />
-      </div> */}
       <footer className="bg-ash_gray opacity-25 absolute bottom-3 left-0 ">
         <Footer/>
       </footer>

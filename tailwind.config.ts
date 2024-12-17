@@ -14,6 +14,8 @@ const config: Config = {
         robotoMono: ['"Roboto Mono"', 'monospace'],
         cabin: ['Cabin Sketch', 'cursive'],
         spaceGrotesk: ['"Space Grotesk"', 'sans-serif'],
+        changa: ['Changa', 'sans-serif'],
+         
 
       },
       
