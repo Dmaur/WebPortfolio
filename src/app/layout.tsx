@@ -11,7 +11,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-rich_black min-h-screen font-cabin m-0 text-beige">
+      <body className="bg-rich_black min-h-screen font-poppins m-0 text-beige-400">
         <div className="flex-1 overflow-auto">
           {children}
         </div>

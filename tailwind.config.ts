@@ -9,12 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        bebas: ['"Bebas Neue"', 'cursive'],
-        ibmPlexMono: ['"IBM Plex Mono"', 'monospace'],
-        robotoMono: ['"Roboto Mono"', 'monospace'],
-        cabin: ['Cabin Sketch', 'cursive'],
-        spaceGrotesk: ['"Space Grotesk"', 'sans-serif'],
-        changa: ['Changa', 'sans-serif'],
+        changa: ['Changa', 'sans-serif'], // Light to bold
+        orbitron: ['Orbitron', 'sans-serif'], // Regular to heavy
+        poppins: ['Poppins', 'sans-serif'], // Regular, italic, light to black
          
 
       },

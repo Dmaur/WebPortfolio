@@ -4,12 +4,11 @@ import Image from "next/image"
 
 
 interface AboutProps {
-    screen: number;
+    isLarge: boolean;
 }
-export default function About({ screen }: AboutProps) {
+export default function About({ isLarge }: AboutProps) {
 
-    const isLarge = screen > 1023;
-
+  
     return (
         <>
             <div className={`m-2 h-[50vh] bg-rich_black rounded-md overflow-y-auto`}>
