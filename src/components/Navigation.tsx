@@ -35,7 +35,7 @@ export default function Navigation({ siteState, setSiteState }: stateProps) {
 
     return (
         <>
-            {/* unber each button is the element that will show if site state is appropriate and isLarge==false */}
+            {/* under each button is the element that will show if site state is appropriate and isLarge==false */}
             <div className="h-[85vh] flex flex-col justify-evenly  lg:flex-row lg:h-[30vh]">
                 <button
                     onClick={() => handleSelect(1)}

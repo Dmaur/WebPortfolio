@@ -1,5 +1,8 @@
 import Image from "next/image"
 
+
+
+
 interface AboutProps {
     screen: number;
 }
@@ -10,12 +13,12 @@ export default function About({ screen }: AboutProps) {
     return (
         <>
             <div className={`m-2 h-[50vh] bg-rich_black rounded-md overflow-y-auto`}>
-                <h1 className="font-changa justify-self-center mb-5 text-4xl font-bold ">Derrick Maurais</h1>
+                <h1 className="justify-self-center mb-5 text-4xl font-bold ">Derrick Maurais</h1>
 
-                <div className={`flex flex-nowrap overflow-hidden justify-self-center ${isLarge ? "flex-row" : "flex-col justify-items-center"}`} >
+                <div className={`flex overflow-hidden justify-self-center ${isLarge ? "flex-row" : "flex-col justify-items-center"}`} >
 
                     <Image
-                        className="p-0 mr-5 object-cover justify-self-center"
+                        className="p-0 mr-5 object-cover "
                         src="/image/betterimage.png"
                         alt="placeholder"
                         height={300}
