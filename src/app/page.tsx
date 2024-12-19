@@ -1,59 +1,59 @@
-"use client"
+"use client";
 
 import Feature from "@/components/FeatureProject";
 import Navigation from "@/components/Navigation";
 import { useState, useEffect } from "react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  // State for screen size and layout
+  const initialWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  const [screenWidth, setScreenWidth] = useState<number>(initialWidth);
+  const [isLarge, setIsLarge] = useState<boolean>(screenWidth > 1023);
 
-  // State variable for tracking the current site state, used for showing or hiding elements
+  // State for determining if the component has mounted
+  const [hasMounted, setHasMounted] = useState(false);
+  // State for site navigation
   const [siteState, setSiteState] = useState<number>(0);
 
-  // State variable for tracking the current screen width, initialized to window.innerWidth if available
-  const [screenWidth, setScreenWidth] = useState<number>(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  // Effect to set the initial screen width when the component is mounted
+  // Effect to handle resizing and initialize values
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setScreenWidth(window.innerWidth);
-    }
-  }, []);
+    setHasMounted(true)
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setScreenWidth(width);
+      setIsLarge(width > 1023); // Update both screenWidth and isLarge
+    };
 
-  // Effect to update screen width dynamically on window resize
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
+    // Set initial values
+    handleResize();
+
+    // Add resize event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup function to remove the resize event listener when the component unmounts
+    // Cleanup listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Boolean to determine if the screen width qualifies as "large" (greater than 1023 pixels)
-  const isLarge: boolean = screenWidth > 1023;
-
-
+  if (!hasMounted) return null;
 
   return (
     <>
-      <Navigation siteState={siteState}
+      <Navigation
+        siteState={siteState}
         setSiteState={setSiteState}
         isLarge={isLarge}
       />
 
-      {/* feature project that is only visible when no other buttons are pressed (states used) and screen size is large */}
-      <div className={`${siteState == 0 && isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
-        <Feature />
+      {/* Conditionally render Feature */}
+      {siteState === 0 && isLarge && (
+        <div className="justify-center mx-5 rounded">
+          <Feature />
+        </div>
+      )}
+       <div className="bg-ash_gray opacity-25 absolute bottom-3 left-0 ">
+        <Footer/>
       </div>
-
-
-
-
-
-
-
-
     </>
   );
 }

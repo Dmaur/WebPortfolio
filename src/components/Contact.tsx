@@ -8,13 +8,13 @@ import Image from "next/image"
 interface AboutProps {
     isLarge: boolean;
 }
-export default function About({ isLarge }: AboutProps) {
+export default function Contact({ isLarge }: AboutProps) {
 
   
     return (
         <>
-            <div className="m-2 p-4 h-[50vh] bg-ash_gray-100 text-ash_gray-800 rounded-md overflow-y-auto">
-                <h1 className="justify-self-center mb-5 text-xl text- lg:text-4xl font-bold ">Derrick Maurais</h1>
+            <div className="m-2 p-4 h-[50vh] bg-glaucous-200 text-ash_gray-800 rounded-md overflow-y-auto">
+                <h1 className="justify-self-center mb-5 text-xl text- lg:text-4xl font-bold ">Contact</h1>
 
                 <div className="flex flex-col lg:flex-row justify-self-center" >
 
@@ -22,8 +22,8 @@ export default function About({ isLarge }: AboutProps) {
                         className="p-0 flex lg:mr-5 rounded-full self-center"
                         src="/image/betterimage.png"
                         alt="selfImage"
-                        height={isLarge? 250 : 150}
-                        width={isLarge? 250 : 150} />
+                        height={isLarge? 250 : 175}
+                        width={isLarge? 250 : 175} />
 
 
                     <p className="pt-6 justify-self-center max-w-2xl ">

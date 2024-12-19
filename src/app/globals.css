@@ -8,7 +8,6 @@
 button:hover{
   text-shadow: rgb(208, 255, 0) 10px 0 30px;
   color: white;
-  transform: scale(1.2);
 }
 #footer a :hover{
   transform: scale(1.2);
