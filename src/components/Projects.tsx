@@ -8,13 +8,13 @@ import Image from "next/image"
 interface AboutProps {
     isLarge: boolean;
 }
-export default function About({ isLarge }: AboutProps) {
+export default function Projects({ isLarge }: AboutProps) {
 
   
     return (
         <>
-            <div className="m-2 p-4 h-[50vh] bg-ash_gray-100 text-ash_gray-800 rounded-md overflow-y-auto">
-                <h1 className="justify-self-center mb-5 text-xl text- lg:text-4xl font-bold ">Derrick Maurais</h1>
+            <div className="m-2 p-4 h-[50vh] bg-space_cadet text-ash_gray-800 rounded-md overflow-y-auto">
+                <h1 className="justify-self-center mb-5 text-xl text- lg:text-4xl font-bold ">Projects</h1>
 
                 <div className="flex flex-col lg:flex-row justify-self-center" >
 
