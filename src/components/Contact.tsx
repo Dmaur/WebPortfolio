@@ -44,10 +44,11 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
 
     return (
         <div className="m-2 p-4 h-[50vh] flex flex-col bg-glaucous-200 text-ash_gray-800 rounded-md overflow-y-auto">
-       
+
+
             <div className="relative flex flex-row justify-center items-center">
-                <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">
-                    Say Hi! <span className="text-6xl">&#128075;</span>
+                <h1 className="mb-5 text-xl  lg:text-4xl font-bold text-center">
+                    Say Hi! <span className="text-5xl">&#128075;</span>
                 </h1>
                 <button
                     onClick={() => setSiteState(0)}
@@ -56,57 +57,75 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
                 </button>
             </div>
 
-            <form
-                ref={form}
-                onSubmit={handleSubmit}
-                className="flex flex-col self-center w-[50vw]"
-            >
-                <label htmlFor="name" className="mb-2 self-center">
-                    Name:
-                </label>
-                <input
-                    onChange={(e) => setUserName(e.target.value)}
-                    className="rounded mb-6 text-black w-[25vw] h-8 self-center p-2"
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Jon Doe..."
-                    required
-                />
+            <div className="flex flex-col self-center">
+                <form
+                    ref={form}
+                    onSubmit={handleSubmit}
+                    className="flex flex-col lg:flex-row w-[63vw]">
+                    <div className="m-5 flex flex-col lg:flex-none ">
+                        <label htmlFor="name" className="mb-2 self-center w-[50vw] lg:w-[25vw]">
+                            Name:
+                        </label>
+                        <input
+                            onChange={(e) => setUserName(e.target.value)}
+                            className="rounded mb-4 text-black w-[50vw] lg:w-[25vw] h-10 self-center p-2"
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Jon Doe..."
+                            required
+                        />
+                        <label htmlFor="email" className="mb-2 self-center w-[50vw] lg:w-[25vw]">
+                            Your email:
+                        </label>
+                        <input
+                            onChange={(e) => setUserEmail(e.target.value)}
+                            className="rounded mb-6 text-black w-[50vw] lg:w-[25vw] h-10 self-center p-2"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com..."
+                            required
+                        />
 
-                <label htmlFor="email" className="mb-2 self-center">
-                    Your email:
-                </label>
-                <input
-                    onChange={(e) => setUserEmail(e.target.value)}
-                    className="rounded mb-6 text-black w-[25vw] h-8 self-center p-2"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@email.com..."
-                    required
-                />
+                    </div>
+                    <div className="flex flex-col lg:mt-4 ">
 
-                <label htmlFor="message" className="mb-2 self-center">
-                    Message:
-                </label>
-                <textarea
-                    onChange={(e) => setMessageCont(e.target.value)}
-                    className="rounded mb-6 text-black w-[35vw] h-30 self-center p-2"
-                    name="message"
-                    id="message"
-                    placeholder="Message..."
-                    required
-                ></textarea>
+                        <label htmlFor="message" className="self-center w-[50vw] lg:w-[35vw]">
+                            Message:
+                        </label>
+                        <textarea
+                            onChange={(e) => setMessageCont(e.target.value)}
+                            className="rounded mb-3 mt-3 text-black w-[50vw] lg:w-[35vw] lg:mb-6 h-32 self-center p-2"
+                            name="message"
+                            id="message"
+                            placeholder="Message..."
+                            required
+                        ></textarea>
 
-                <button
-                    type="submit"
-                    className="w-40 self-center py-3 rounded bg-drab hover:bg-drab-dark"
-                >
-                    SEND
-                </button>
-            </form>
-            {status && <p className="self-center mt-4 text-lg">{status}</p>}
+                        <div className="flex flex-col lg:justify-between lg:flex-row">
+                            {status && <p className="self-center lg:mt-4 text-lg">{status}</p>}   
+                            <button
+                                type="submit"
+                                className="w-40 mt-2 lg:mt-0 self-center py-3 rounded bg-drab-300 hover:bg-drab"
+                            >
+                                SEND
+                            </button>
+                           
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+
+            </div>
+
+
+
         </div>
     );
 }
