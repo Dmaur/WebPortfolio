@@ -13,6 +13,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="bg-drab min-h-screen font-poppins m-0 text-ash_gray">
         <div className="flex-1 overflow-auto">
         {children}
+        {/* script for using emailjs */}
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         </div>
       </body>
     </html>

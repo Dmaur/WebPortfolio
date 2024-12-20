@@ -46,7 +46,7 @@ export default function Home() {
       />
 
       {/* Conditionally render Feature */}
-      {siteState === 0 && isLarge && (
+      {siteState == 0 && isLarge && (
         <div className="justify-center mx-5 rounded">
           <Feature />
         </div>
