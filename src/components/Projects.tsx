@@ -7,14 +7,22 @@ import Image from "next/image"
 
 interface AboutProps {
     isLarge: boolean;
+    setSiteState: (index: number) => void;
 }
-export default function Projects({ isLarge }: AboutProps) {
+export default function Projects({ isLarge, setSiteState }: AboutProps) {
 
   
     return (
         <>
             <div className="m-2 p-4 h-[50vh] bg-space_cadet text-ash_gray-800 rounded-md overflow-y-auto">
-                <h1 className="justify-self-center mb-5 text-xl text- lg:text-4xl font-bold ">Projects</h1>
+            <div className="relative flex flex-row justify-center items-center">
+                    <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
+                    <button
+                        onClick={() => setSiteState(0)}
+                        className="absolute top-0 right-0 mr-2 text-3xl">
+                        X
+                    </button>
+                </div>
 
                 <div className="flex flex-col lg:flex-row justify-self-center" >
 

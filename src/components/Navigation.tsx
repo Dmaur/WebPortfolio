@@ -28,36 +28,40 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                 <button
                     onClick={() => handleSelect(1)}
                     className={`text-3xl mt-4 mb-1.5 ${siteState == 1 ? "text-white underline decoration-double decoration-white" : "text-inherit"} `}>
-                        ABOUT
+                    ABOUT
                 </button>
                 <div className={` ${siteState == 1 && !isLarge ? "justify-center mx-14" : "hidden"}`}>
-                    <About isLarge={isLarge} />
+                    <About isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
 
                 <button
                     onClick={() => handleSelect(2)}
                     className={`text-3xl m-6 ${siteState == 2 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
-                        SKILLS
+                    SKILLS
                 </button>
                 <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14 rounded" : "hidden"}`}>
-                    <Skills isLarge={isLarge} />
+                    <Skills isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
 
                 <button
                     onClick={() => handleSelect(3)}
                     className={`text-3xl m-6 ${siteState == 3 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
-                        PROJECTS
+                    PROJECTS
                 </button>
                 <div className={`${siteState == 3 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
-                    <Projects isLarge={isLarge} />
+                    <Projects isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
 
                 <button
                     onClick={() => handleSelect(4)}
                     className={`text-3xl m-6 ${siteState == 4 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
-                        CONTACT</button>
+                    CONTACT</button>
                 <div className={`${siteState == 4 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
-                    <Contact isLarge={isLarge} />
+                    <Contact isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
             </div>
 
@@ -65,16 +69,20 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
             {/* container to hold the elements that show only when site state is appropriate and isLarge==true */}
             <div className="w-[85vw] justify-self-center">
                 <div className={` ${siteState == 1 && isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
-                    <About isLarge={isLarge} />
+                    <About isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
                 <div className={`${siteState == 2 && isLarge ? "justify-center mx-5  rounded" : "hidden"}`}>
-                    <Skills isLarge={isLarge} />
+                    <Skills isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
                 <div className={`${siteState == 3 && isLarge ? "justify-center mx-5  rounded" : "hidden"}`}>
-                    <Projects isLarge={isLarge} />
+                    <Projects isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
                 <div className={`${siteState == 4 && isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
-                    <Contact isLarge={isLarge} />
+                    <Contact isLarge={isLarge}
+                        setSiteState={setSiteState} />
                 </div>
             </div>
 

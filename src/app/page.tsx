@@ -46,14 +46,12 @@ export default function Home() {
       />
 
       {/* Conditionally render Feature */}
-      {siteState == 0 && isLarge && (
+      { isLarge && siteState == 0 && (
         <div className="justify-center mx-5 rounded">
           <Feature />
         </div>
       )}
-       <div className="bg-ash_gray opacity-25 absolute bottom-3 left-0 ">
-        <Footer/>
-      </div>
+       
     </>
   );
 }
