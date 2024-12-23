@@ -27,6 +27,7 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
             <div className="h-[85vh] flex flex-col justify-evenly  lg:flex-row lg:h-[20vh]">
                 <button
                     onClick={() => handleSelect(1)}
+                    data-twe-ripple-init
                     className={`text-3xl mt-4 mb-1.5 ${siteState == 1 ? "text-white underline decoration-double decoration-white" : "text-inherit"} `}>
                     ABOUT
                 </button>
