@@ -4,6 +4,7 @@ export default function Footer() {
 
     return (
         <>
+            
             <div id="footer" className="flex flex-row justify-evenly w-[100vw] p-5">
 
                 <a href="https://www.linkedin.com/in/derrick-maurais-a37b3224a" target="_blank">
@@ -33,9 +34,12 @@ export default function Footer() {
 
                 </a>
 
+                
+
 
 
             </div>
+          
 
         </>
     );

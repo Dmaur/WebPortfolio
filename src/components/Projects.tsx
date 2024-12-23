@@ -19,7 +19,7 @@ export default function Projects({ isLarge, setSiteState }: AboutProps) {
                     <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
                     <button
                         onClick={() => setSiteState(0)}
-                        className="absolute top-0 right-0 mr-2 text-3xl">
+                        className="absolute font-medium top-0 right-0 mr-2 text-s text-white hover:bg-gray-100 hover:text-black hover:text-opacity-100 hover:rounded-full hover:opacity-25 p-3">
                         X
                     </button>
                 </div>
