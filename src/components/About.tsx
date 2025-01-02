@@ -14,9 +14,9 @@ export default function About({ isLarge, setSiteState }: AboutProps) {
 
     return (
         <>
-            <div className="m-2 p-4 h-[50vh] bg-ash_gray-100 text-ash_gray-800 rounded-md overflow-y-auto">
+            <div className="m-2 p-4 h-[50vh] bg-ash_gray-100 text-ash_gray-800 rounded-md shadow-md shadow-ash_gray-200 overflow-y-auto">
 
-                <div className="relative flex flex-row justify-center items-center">
+                <div className="relative mt-4 flex flex-row justify-center items-center">
                     <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">Derrick Maurais</h1>
                     <button
                         onClick={() => setSiteState(0)}
@@ -30,23 +30,28 @@ export default function About({ isLarge, setSiteState }: AboutProps) {
                 <div className="flex flex-col lg:flex-row justify-self-center" >
 
                     <Image
-                        className="p-0 flex lg:mr-5 rounded-full self-center"
+                        className="p-0 shadow-lg shadow-ash_gray-200 flex lg:mr-8 rounded-full self-center"
                         src="/image/betterimage.png"
                         alt="selfImage"
                         height={isLarge ? 250 : 150}
                         width={isLarge ? 250 : 150} />
 
 
-                    <p className="pt-6 justify-self-center max-w-2xl ">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio, eum id repellendus,
-                        maiores culpa vero optio iusto aliquam qui beatae amet, unde nostrum sint molestiae ab molestias velit laboriosam!
-                        Laudantium odio illo in molestias! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Cupiditate nemo placeat numquam beatae inventore, ex molestias repellat provident consectetur aspernatur
-                        psa ab? Dolores ad labore dignissimos qui nam velit distinctio.
-                        Nobis soluta pariatur aperiam distinctio, ut harum rerum, nulla ea possimus unde adipisci
-                        excepturi accusamus deleniti illum veniam cupiditate ullam enim repellat tempora, deserunt saepe? Ipsam,
-                        aliquid? Et, consequuntur obcaecati.
-                    </p>
+                    <div className=" mt-5 lg:mt-2 just justify-self-center flex flex-col lg:justify-between max-w-2xl">
+                        <p >2025 NSCC Truro Web Development graduate</p>
+                        <br/>
+                        <p >Passionate about back-end development</p>
+                        <br/>
+                        <p >Eager to embrace new challenges and expand my skill set</p>
+                        <br/>
+                        <p >Want to know more? Download my resume <a href="/dwnld/placeholderfor resume.pdf" download={"DMaurais_Resume"} className="underline hover:text-blue-800">here </a>&#128072; </p>
+
+        
+                       
+                    </div>
+
+                   
+
 
                 </div>
 

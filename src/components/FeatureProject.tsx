@@ -2,39 +2,43 @@
 import Image from "next/image";
 
 
-export default function Feature(){
+export default function Feature() {
 
-    return(
-         <>
-                    <div className="m-2 h-[50vh] bg-rich_black rounded overflow-y-auto lg:flex-row">
-                        <h1 className="justify-self-center font-ibmPlexMono text-2xl font-bold pt-3 text-bittersweet">FEATURE PROJECT</h1>
-                        <div className="flex justify-center">
-                            <Image
-                                className="rounded-md flex pt-4"
-                                src="/image/portrait-placeholder-grey.gif"
-                                alt="placeholder"
-                                height={150}
-                                width={150} />
-        
+    return (
+        <>
+           <div className="m-2 p-4 h-[50vh] mx-5 text-ash_gray-800 rounded-md overflow-y-auto">
+                <h1 className="justify-self-center text-2xl font-bold">Feature Project Title</h1>
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+
+                    <a href="https://live-example-link.com" target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden">
+                        <Image 
+                            src="/image/LinksApp.png" 
+                            alt="Project Screenshot" 
+                            className="transform transition-transform hover:scale-105 duration-300"
+                            height={100}
+                            width={100} />
+                    </a>
+
+                    <div>
+                        <p className="text-gray-600 leading-relaxed mb-4">
+                            This project is a brief description of the work, highlighting the purpose, features, and any interesting challenges solved during its development.
+                        </p>
+                        <div>
+                            <h4 className="text-lg font-medium mb-2">Technologies Used:</h4>
+                            <ul className="flex flex-wrap gap-2">
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">HTML</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">CSS</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">JavaScript</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">React</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">Tailwind CSS</li>
+                            </ul>
                         </div>
-                        <div className="mt-2 mx-2 text-bittersweet-700">
-                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio, eum id repellendus, 
-                            maiores culpa vero optio iusto aliquam qui beatae amet, unde nostrum sint molestiae ab molestias velit laboriosam!
-                            Laudantium odio illo in molestias! Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Cupiditate nemo placeat numquam beatae inventore, ex molestias repellat provident consectetur aspernatur
-                            psa ab? Dolores ad labore dignissimos qui nam velit distinctio.
-                            Nobis soluta pariatur aperiam distinctio, ut harum rerum, nulla ea possimus unde adipisci 
-                            excepturi accusamus deleniti illum veniam cupiditate ullam enim repellat tempora, deserunt saepe? Ipsam,
-                            aliquid? Et, consequuntur obcaecati.</p>
-        
-                        
-        
-                        </div>
-        
-        
-        
                     </div>
-                </>
+                </div>
+
+
+            </div>
+        </>
 
     );
 

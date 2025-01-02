@@ -1,6 +1,6 @@
 "use client"
 import About from "./About"
-import Skills from "./Skills";
+
 import Projects from "./Projects";
 import Contact from "./Contact";
 
@@ -28,7 +28,7 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                 <button
                     onClick={() => handleSelect(1)}
                     data-twe-ripple-init
-                    className={`text-3xl mt-4 mb-1.5 ${siteState == 1 ? "text-white underline decoration-double decoration-white" : "text-inherit"} `}>
+                    className={`text-3xl mt-4 mb-1.5 ${siteState == 1 ? "text-white " : "text-inherit"} `}>
                     ABOUT
                 </button>
                 <div className={` ${siteState == 1 && !isLarge ? "justify-center mx-14" : "hidden"}`}>
@@ -38,29 +38,19 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
 
                 <button
                     onClick={() => handleSelect(2)}
-                    className={`text-3xl m-6 ${siteState == 2 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
-                    SKILLS
-                </button>
-                <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14 rounded" : "hidden"}`}>
-                    <Skills isLarge={isLarge}
-                        setSiteState={setSiteState} />
-                </div>
-
-                <button
-                    onClick={() => handleSelect(3)}
-                    className={`text-3xl m-6 ${siteState == 3 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
+                    className={`text-3xl m-6 ${siteState == 2 ? "text-white " : "text-inherit"}`}>
                     PROJECTS
                 </button>
-                <div className={`${siteState == 3 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
+                <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
 
                 <button
-                    onClick={() => handleSelect(4)}
-                    className={`text-3xl m-6 ${siteState == 4 ? "text-white underline decoration-double decoration-white" : "text-inherit"}`}>
+                    onClick={() => handleSelect(3)}
+                    className={`text-3xl m-6 ${siteState == 3 ? "text-white" : "text-inherit"}`}>
                     CONTACT</button>
-                <div className={`${siteState == 4 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
+                <div className={`${siteState == 3 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
                     <Contact isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
@@ -73,15 +63,12 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                     <About isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
+                
                 <div className={`${siteState == 2 && isLarge ? "justify-center mx-5  rounded" : "hidden"}`}>
-                    <Skills isLarge={isLarge}
-                        setSiteState={setSiteState} />
-                </div>
-                <div className={`${siteState == 3 && isLarge ? "justify-center mx-5  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
-                <div className={`${siteState == 4 && isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
+                <div className={`${siteState == 3&& isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
                     <Contact isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
