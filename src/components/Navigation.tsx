@@ -1,6 +1,5 @@
 "use client"
 import About from "./About"
-
 import Projects from "./Projects";
 import Contact from "./Contact";
 
@@ -14,7 +13,7 @@ interface stateProps {
 export default function Navigation({ siteState, setSiteState, isLarge }: stateProps) {
 
 
-    // when the buttons are clicked, it checks the passed in number against the site state and changes state accoridngly. 
+    // when the buttons are clicked, it checks the passed in number against the site state and changes state accordingly. 
     const handleSelect = (n: number) => {
         siteState != n ? setSiteState(n) : setSiteState(0);
     }
@@ -39,7 +38,7 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                 <button
                     onClick={() => handleSelect(2)}
                     className={`text-3xl m-6 ${siteState == 2 ? "text-white " : "text-inherit"}`}>
-                    PROJECTS
+                    My Work
                 </button>
                 <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}

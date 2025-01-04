@@ -1,7 +1,6 @@
 "use client"
 
-import Image from "next/image"
-
+import Image from "next/image";
 
 
 
@@ -11,11 +10,11 @@ interface AboutProps {
 }
 export default function Projects({ isLarge, setSiteState }: AboutProps) {
 
-  
+
     return (
         <>
-            <div className="m-2 p-4 h-[50vh] bg-space_cadet text-ash_gray-800 rounded-md overflow-y-auto">
-            <div className="relative flex flex-row justify-center items-center">
+            <div className="m-2 p-4 h-[50vh] bg-space_cadet text-ash_gray-800 rounded-md shadow-md shadow-ash_gray-200 overflow-y-auto">
+                <div className="relative mt-4 flex flex-row justify-center items-center">
                     <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
                     <button
                         onClick={() => setSiteState(0)}
@@ -23,29 +22,35 @@ export default function Projects({ isLarge, setSiteState }: AboutProps) {
                         X
                     </button>
                 </div>
+                <section className="m-3">
+                    
+                    <div className="flex flex-col items-center lg:flex-row lg:justify-around lg:items-start lg:text-start">
+                        <a href="https://www.amazon.com" target="_blank">
+                        <Image
+                            className="mb-4 mx-auto"
+                            height={isLarge ? 250 : 150}
+                            width={isLarge ? 250 : 150}
+                            src={"/image/LinksApp.png"}
+                            alt={"test img"}
+                        />
+                        </a>
+                       
+                        <div className="w-[55vw] lg:w-[45vw]">
+                            <h1 className="text-2xl mb-2">Title</h1>
+                            <ul className="flex flex-wrap-reverse content-center gap-2 mb-2 lg:mb-10">
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">HTML</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">CSS</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">JavaScript</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">React</li>
+                                <li className="bg-gray-200 text-gray-800 px-3 py-1 rounded-md">Tailwind CSS</li>
+                            </ul>
 
-                <div className="flex flex-col lg:flex-row justify-self-center" >
-
-                    <Image
-                        className="p-0 flex lg:mr-5 rounded-full self-center"
-                        src="/image/betterimage.png"
-                        alt="selfImage"
-                        height={isLarge? 250 : 150}
-                        width={isLarge? 250 : 150} />
+                            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur eligendi! Totam unde qui veniam voluptates! Fugiat nisi ex dolorum saepe impedit iusto?</p>
+                        </div>
+                    </div>
+                </section>
 
 
-                    <p className="pt-6 justify-self-center max-w-2xl ">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore distinctio, eum id repellendus,
-                        maiores culpa vero optio iusto aliquam qui beatae amet, unde nostrum sint molestiae ab molestias velit laboriosam!
-                        Laudantium odio illo in molestias! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Cupiditate nemo placeat numquam beatae inventore, ex molestias repellat provident consectetur aspernatur
-                        psa ab? Dolores ad labore dignissimos qui nam velit distinctio.
-                        Nobis soluta pariatur aperiam distinctio, ut harum rerum, nulla ea possimus unde adipisci
-                        excepturi accusamus deleniti illum veniam cupiditate ullam enim repellat tempora, deserunt saepe? Ipsam,
-                        aliquid? Et, consequuntur obcaecati.
-                    </p>
-
-                </div>
 
 
 

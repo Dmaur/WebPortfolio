@@ -17,9 +17,9 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
     const [isAlertVisible, setIsAlertVisible] = React.useState(false);
 
     const form = useRef<HTMLFormElement | null>(null);
-    const publicKey = "z0BimyDiKPSxpy1dC";
-    const serviceId = "service_he1wspt";
-    const templateId = "template_bbvcl8u";
+    const publicKey: string = "z0BimyDiKPSxpy1dC";
+    const serviceId: string = "service_he1wspt";
+    const templateId: string = "template_bbvcl8u";
 
     const validName = (str: string) => /^[A-Za-z]+(?:[-' ][A-Za-z]+)*$/.test(str);
     const validEmail = (str: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(str);
@@ -137,7 +137,7 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
                             >
                                 SEND
                             </button>
-                            <span className={`self-center text-center mt-2 lg:mt-4 text-lg ${submitEnabled? "hidden" : "text-yellow-600"}`}>Ensure all input fields are valid</span>
+                            <span className={`self-center text-center mt-2 lg:mt-4 text-lg ${submitEnabled? "hidden" : "text-yellow-600"}`}>Not all fields are valid</span>
                             
                             
 

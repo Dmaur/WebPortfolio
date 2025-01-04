@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import { getProjects } from "@/tools/datamanager";
+
 
 export const metadata: Metadata = {
   title: "Derrick Maurais",
