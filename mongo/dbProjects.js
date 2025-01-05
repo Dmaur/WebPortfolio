@@ -2,7 +2,7 @@ db.projects.drop();
 
 db.projects.insert([
     {
-        "projName": "Links App",
+        "projName": "Personal links landing page",
         "description": "A personal links launch pad for your browser. Has an admin end with login for managing links and categories.",
         "imgSrc": "/image/LinksApp.png",
         "link": "https://www.amazon.com",
@@ -16,43 +16,28 @@ db.projects.insert([
         ]
     },
     {
-        "projName": "Courses App",
-        "description": "This App is a mock up of an administration application built for the purpose of learning RESTful API's and non relational database management with MONGO.",
-        "imgSrc": "/image/LinksApp.png",
-        "link": "",
+        "projName": "Hover Draw",
+        "description": "A simple browser based app that taught me the fundamentals of DOM manipulation and taking user input to control what is displayed. It's a fun one to look back on",
+        "imgSrc": "/image/drawpad.png",
+        "link": "https://dmaur.github.io/drawPadv2/",
         "tech":[
-            {"techName": "React/Next.js"},
-            {"techName": "Node.js"},
-            {"techName": "TypeScript"},
-            {"techName": "Tailwind"},
-            {"techName": "Docker"}
-
+            {"techName": "HTML"},
+            {"techName": "CSS"},
+            {"techName": "JS"},
 
         ]
     },
     {
-        "projName": "Links App",
-        "description": "A personal links launch pad for your browser. Has an admin end with login for managing links and categories.",
-        "imgSrc": "/image/LinksApp.png",
-        "tech":[
-            {"techName": "ASP.NET Core"},
-            {"techName": "MySQL"},
-            {"techName": "C#"},
-            {"techName": "Docker"}
-
-        ]
-    },
-    {
-        "projName": "Courses App",
-        "description": "This App is a mock up of an administration application built for the purpose of learning RESTful API's and non relational database management with MONGO.",
-        "imgSrc": "/image/LinksApp.png",
+        "projName": "Technology Roster",
+        "description": "This App is a mock up of an administration application built for the purpose of learning RESTful API's and non relational database management with MONGO. Here, I also learned page routing and user input validation/sanitization",
+        "imgSrc": "/image/techroster.png",
         "link": "https://www.chefknivestogo.com",
         "tech":[
             {"techName": "React/Next.js"},
-            {"techName": "Node.js"},
+            {"techName": "MongoDB"},
             {"techName": "TypeScript"},
+            {"techName": "TailWind"},
             {"techName": "Docker"}
-
 
         ]
     }
