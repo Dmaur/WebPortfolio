@@ -2,15 +2,17 @@
 import About from "./About"
 import Projects from "./Projects";
 import Contact from "./Contact";
+import { Project } from "@/tools/data.model";
 
 // drilled in siteState for tracking and changing the site state as buttons are pressed and screen width. 
 interface stateProps {
     siteState: number;
     setSiteState: (index: number) => void;
     isLarge: boolean;
+    projects: Project[];
 }
 
-export default function Navigation({ siteState, setSiteState, isLarge }: stateProps) {
+export default function Navigation({ siteState, setSiteState, isLarge, projects }: stateProps) {
 
 
     // when the buttons are clicked, it checks the passed in number against the site state and changes state accordingly. 
@@ -42,7 +44,8 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                 </button>
                 <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}
-                        setSiteState={setSiteState} />
+                        setSiteState={setSiteState}
+                        projects={projects} />
                 </div>
 
                 <button
@@ -62,12 +65,13 @@ export default function Navigation({ siteState, setSiteState, isLarge }: statePr
                     <About isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
-                
+
                 <div className={`${siteState == 2 && isLarge ? "justify-center mx-5  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}
-                        setSiteState={setSiteState} />
+                        setSiteState={setSiteState}
+                        projects={projects} />
                 </div>
-                <div className={`${siteState == 3&& isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
+                <div className={`${siteState == 3 && isLarge ? "justify-center mx-5 rounded" : "hidden"}`}>
                     <Contact isLarge={isLarge}
                         setSiteState={setSiteState} />
                 </div>
