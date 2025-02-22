@@ -23,7 +23,7 @@ export default function Projects({ isLarge, setSiteState, projects }: AboutProps
                 </button>
                 <div className="relative mt-4 flex flex-row justify-center items-center">
 
-                    <h1 className="mb-5 text-xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
+                    <h1 className="mb-5 text-2xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
 
                 </div>
                 <section className="m-3">

@@ -7,7 +7,7 @@ export default function Feature() {
     return (
         <>
            <div className="m-2 p-4 h-[50vh] mx-5 text-ash_gray-800 rounded-md overflow-y-auto">
-                <h1 className="justify-self-center text-2xl font-bold">Feature Project Title</h1>
+                <h1 className="justify-self-center text-2xl font-bold">What I'm Working on</h1>
                 <div className="grid md:grid-cols-2 gap-8 items-center">
 
                     <a href="https://live-example-link.com" target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden">

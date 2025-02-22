@@ -44,7 +44,7 @@ export default function About({ isLarge, setSiteState }: AboutProps) {
                         <br/>
                         <p >Eager to embrace new challenges and expand my skill set</p>
                         <br/>
-                        <p >Want to know more? Download my resume <a href="/dwnld/placeholderfor resume.pdf" download={"DMaurais_Resume"} className="underline hover:text-blue-800">here </a>&#128072; </p>
+                        <p >Want to know more? Download my resume <a href="/dwnld/Derrick MauraisResume2025.pdf" download={"DMaurais_Resume"} className="underline hover:text-blue-800">here </a>&#128072; </p>
 
         
                        
