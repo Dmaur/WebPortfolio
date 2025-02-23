@@ -16,7 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="bg-drab min-h-screen font-poppins m-0 text-ash_gray">
         <div className="flex-1 overflow-auto">
           {children}
-          <div className="bg-ash_gray opacity-25 absolute bottom-3 left-0 mb-0 ">
+          <div className="bg-ash_gray opacity-25 lg:absolute lg:bottom-3 lg:left-0 lg:mb-0 ">
             <Footer />
           </div>
           {/* script for using emailjs */}

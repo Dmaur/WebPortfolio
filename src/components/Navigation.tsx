@@ -40,7 +40,7 @@ export default function Navigation({ siteState, setSiteState, isLarge, projects 
                 <button
                     onClick={() => handleSelect(2)}
                     className={`text-3xl m-6 ${siteState == 2 ? "text-white " : "text-inherit"}`}>
-                    My Work
+                    MY WORK
                 </button>
                 <div className={`${siteState == 2 && !isLarge ? "justify-center mx-14  rounded" : "hidden"}`}>
                     <Projects isLarge={isLarge}
