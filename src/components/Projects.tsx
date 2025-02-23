@@ -26,7 +26,7 @@ export default function Projects({ isLarge, setSiteState, projects }: AboutProps
                 </div>
 
 
-                <h1 className="underline mb-5 text-2xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
+                <h1 className="underline mb-5 mt-10 text-2xl mt-2 lg:text-4xl font-bold text-center">Projects</h1>
 
 
                 <section className="m-3">

@@ -76,7 +76,7 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
                     X
                 </button>
             </div>
-            <h1 className="mb-5 text-xl  lg:text-4xl font-bold text-center">
+            <h1 className="mb-5 mt-10 text-xl  lg:text-4xl font-bold text-center">
                 Say Hi! <span className="text-5xl">&#128075;</span>
             </h1>
 
