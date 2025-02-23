@@ -5,7 +5,7 @@ db.projects.insert([
         "projName": "Personal links landing page",
         "description": "A personal links launch pad for your browser. Has an admin end with login for managing links and categories.",
         "imgSrc": "/image/LinksApp.png",
-        "link": "https://www.amazon.com",
+        "link": "https://github.com/Dmaur/LinksApp",
         "tech":[
             {"techName": "ASP.NET Core"},
             {"techName": "MySQL"},

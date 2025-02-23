@@ -23,17 +23,17 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
 
     const validName = (str: string) => /^[A-Za-z]+(?:[-' ][A-Za-z]+)*$/.test(str);
     const validEmail = (str: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(str);
-    const msgValid = (str: string) => /^[\w\s.,!?@#$%^&*()\-_=+[\]{};:'"<>/|\\~`]*$/.test(str); 
+    const msgValid = (str: string) => /^[\w\s.,!?@#$%^&*()\-_=+[\]{};:'"<>/|\\~`]*$/.test(str);
 
     const isNameValid = userName.trim().length > 0
         && userName.length <= 30
         && validName(userName);
     const isEmailValid = userEmail.trim().length > 0
-        && userEmail.length <=100
+        && userEmail.length <= 100
         && validEmail(userEmail);
-    const isMsgValid = messageCont.trim().length > 0 
+    const isMsgValid = messageCont.trim().length > 0
         && messageCont.length <= 1500
-        && msgValid(messageCont); 
+        && msgValid(messageCont);
 
     const submitEnabled = isEmailValid && isNameValid && isMsgValid;
 
@@ -68,16 +68,17 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
         <div className="m-2 p-4 h-[50vh] flex flex-col bg-glaucous-200 text-ash_gray-800 rounded-md shadow-md shadow-ash_gray-200 overflow-y-auto">
 
 
-            <div className="relative flex flex-row justify-center items-center mt-4">
-                <h1 className="mb-5 text-xl  lg:text-4xl font-bold text-center">
-                    Say Hi! <span className="text-5xl">&#128075;</span>
-                </h1>
+            <div className="relative flex flex-row justify-center items-center">
+
                 <button
                     onClick={() => setSiteState(0)}
                     className="absolute font-medium top-0 right-0 mr-2 text-s text-white hover:bg-gray-100 hover:text-black hover:text-opacity-100 hover:rounded-full hover:opacity-25 p-3">
                     X
                 </button>
             </div>
+            <h1 className="mb-5 text-xl  lg:text-4xl font-bold text-center">
+                Say Hi! <span className="text-5xl">&#128075;</span>
+            </h1>
 
             <div className="flex flex-col self-center">
                 <form
@@ -87,11 +88,11 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
 
                     <div className="m-5 flex flex-col self-center lg:flex-none lg:self-baseline ">
                         <label htmlFor="name" className="mb-2 lg:w-[25vw]">
-                            Name: <span className={`${isNameValid? "hidden":"text-yellow-500"}`}> Aa-Zz</span>
+                            Name: <span className={`${isNameValid ? "hidden" : "text-yellow-500"}`}> Aa-Zz</span>
                         </label>
                         <input
                             onChange={(e) => setUserName(e.target.value)}
-                            className={`rounded mb-4 text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[20vw] h-10  p-2 ${isNameValid? "focus:ring-green-700" : "focus:ring-rose-700"}`}
+                            className={`rounded mb-4 text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[20vw] h-10  p-2 ${isNameValid ? "focus:ring-green-700" : "focus:ring-rose-700"}`}
                             type="text"
                             id="name"
                             name="name"
@@ -100,11 +101,11 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
                             required
                         />
                         <label htmlFor="email" className="mb-2 lg:w-[25vw]">
-                            Email: <span className={`${isEmailValid? "hidden":"text-yellow-500"}`}>Enter valid email</span>
+                            Email: <span className={`${isEmailValid ? "hidden" : "text-yellow-500"}`}>Enter valid email</span>
                         </label>
                         <input
                             onChange={(e) => setUserEmail(e.target.value)}
-                            className={`rounded mb-6 text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[20vw] h-10 p-2 ${isEmailValid? "focus:ring-green-700" : "focus:ring-rose-700"}`}
+                            className={`rounded mb-6 text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[20vw] h-10 p-2 ${isEmailValid ? "focus:ring-green-700" : "focus:ring-rose-700"}`}
                             type="email"
                             id="email"
                             name="email"
@@ -117,11 +118,11 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
                     <div className="flex flex-col lg:mt-4 ">
 
                         <label htmlFor="message" className="self-center w-[50vw] lg:w-[35vw]">
-                            Message: <span className={`${isMsgValid? "hidden":"text-yellow-500"}`}>Enter a message</span>
+                            Message: <span className={`${isMsgValid ? "hidden" : "text-yellow-500"}`}>Enter a message</span>
                         </label>
                         <textarea
                             onChange={(e) => setMessageCont(e.target.value)}
-                            className={`rounded mb-3 mt-3 self-center text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[35vw] lg:mb-6 h-32 p-2 ${isMsgValid? "focus:ring-green-700" : "focus:ring-rose-700"}`}
+                            className={`rounded mb-3 mt-3 self-center text-black w-[50vw] focus:outline-none focus:ring-2 lg:w-[35vw] lg:mb-6 h-32 p-2 ${isMsgValid ? "focus:ring-green-700" : "focus:ring-rose-700"}`}
                             name="message"
                             id="message"
                             placeholder="What's on your mind?"
@@ -133,18 +134,18 @@ export default function Contact({ isLarge, setSiteState }: AboutProps) {
 
                             <button
                                 type="submit"
-                                className={`w-40 mt-2 lg:mt-0 self-center bg-yellow-600 py-3 rounded ${submitEnabled? "hover:bg-yellow-600" : "opacity-50 cursor-not-allowed"}  `}
+                                className={`w-40 mt-2 lg:mt-0 self-center bg-yellow-600 py-3 rounded ${submitEnabled ? "hover:bg-yellow-600" : "opacity-50 cursor-not-allowed"}  `}
                             >
                                 SEND
                             </button>
-                            <span className={`self-center text-center mt-2 lg:mt-4 text-lg ${submitEnabled? "hidden" : "text-yellow-600"}`}>Not all fields are valid</span>
-                            
-                            
+                            <span className={`self-center text-center mt-2 lg:mt-4 text-lg ${submitEnabled ? "hidden" : "text-yellow-600"}`}>Not all fields are valid</span>
+
+
 
 
                         </div>
                         {status && isAlertVisible && <p className="self-center lg:mt-4 text-lg">{status}</p>}
-                       
+
 
                     </div>
 
