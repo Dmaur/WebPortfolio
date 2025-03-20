@@ -46,7 +46,7 @@ export default function About({ isLarge, setSiteState }: AboutProps) {
                         <br/>
                         <p className={`${isLarge? "ml-4": "text-left"}`}>Eager to embrace new challenges and expand my skill set</p>
                         <br/>
-                        <p >Want to know more? Download my resume <a href="/dwnld/Derrick MauraisResume2025.pdf" download={"DMaurais_Resume"} className="underline hover:text-blue-800">here </a>&#128072; </p>
+                        <p >Want to know more? Download my resume <a href="/dwnld/DMResume2025.pdf" download={"DMaurais_Resume"} className="underline hover:text-blue-800">here </a>&#128072; </p>
 
         
                        
