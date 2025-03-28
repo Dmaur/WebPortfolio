@@ -35,9 +35,11 @@ pipeline {
         
         stage('Deploy to Vercel') {
             steps {
-                // Trigger Vercel deployment using deploy hook
-                sh 'curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_JIc9pslhWv33rvDH2Pv9nQi4PxzZ/Hgfxm1l4s1'
-                echo "Deployment triggered on Vercel. Check Vercel dashboard for build status."
+                // Deploy to Vercel using CLI (this will create a preview by default)
+                sh 'vercel --token ${VERCEL_TOKEN} --confirm'
+                
+                // If you want to force production deployment instead:
+                // sh 'vercel --token ${VERCEL_TOKEN} --prod --confirm'
             }
         }
     }
