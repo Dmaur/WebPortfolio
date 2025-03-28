@@ -38,8 +38,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'vercel-token', variable: 'VERCEL_TOKEN')]) {
                     sh '''
                     echo "Deploying to Vercel..."
-                    vercel --token="${VERCEL_TOKEN}" --confirm
-                    echo "Deployment complete. Check Vercel dashboard for details."
+                    
+                    curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ/vWS_Gz5Wvs"
+                    echo "Deployment to existing project triggered. Check Vercel dashboard for details."
                     '''
                 }
             }
