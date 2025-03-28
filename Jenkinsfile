@@ -63,15 +63,7 @@ pipeline {
         
         stage('Deploy to Vercel') {
             steps {
-                // Install Vercel CLI if not already installed
-                sh 'npm install -g vercel'
-                
-                // Deploy to Vercel using the stored token
-                // The --prod flag deploys to production
-                sh '''
-                echo "Deploying to Vercel..."
-                vercel --token ${VERCEL_TOKEN} --prod --confirm
-                '''
+                https://api.vercel.com/v1/integrations/deploy/prj_JIc9pslhWv33rvDH2Pv9nQi4PxzZ/VwSyxSab7f
             }
         }
     }
