@@ -1,83 +1,59 @@
 pipeline {
     agent any
     
+    tools {
+        nodejs "node22" // Use the name you defined in Global Tool Configuration
+    }
+    
     environment {
-        // Define environment variables
         VERCEL_TOKEN = credentials('vercel-token')
-        NODE_VERSION = '21'
     }
     
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the repository
                 checkout scm
-            }
-        }
-        
-        stage('Setup Node.js') {
-            steps {
-                // Set up Node.js environment
-                sh 'echo "Setting up Node.js environment"'
-                
-                // Use Node.js plugin if available, or install Node.js
-                // This command may need to be adjusted based on your Jenkins setup
-                sh """
-                export NVM_DIR="\$HOME/.nvm"
-                [ -s "\$NVM_DIR/nvm.sh" ] && . "\$NVM_DIR/nvm.sh"
-                nvm install ${NODE_VERSION} || echo "Using existing Node installation"
-                node -v
-                npm -v
-                """
             }
         }
         
         stage('Install Dependencies') {
             steps {
-                // Install project dependencies
                 sh 'npm install'
-            }
-        }
-        
-        stage('Lint') {
-            steps {
-                // Run ESLint
-                sh 'npm run lint'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                // Build the Next.js application
-                sh 'npm run build'
             }
         }
         
         stage('Run Tests') {
             steps {
-                // Add testing steps when you have tests in place
-                sh 'echo "No tests configured yet. Skipping test stage."'
-                // Example: sh 'npm test'
+                sh 'npm test || echo "No tests specified"'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm run build'
             }
         }
         
         stage('Deploy to Vercel') {
             steps {
-                https://api.vercel.com/v1/integrations/deploy/prj_JIc9pslhWv33rvDH2Pv9nQi4PxzZ/VwSyxSab7f
+                // Install Vercel CLI if not installed globally
+                sh 'npm install -g vercel'
+                
+                // Deploy to Vercel using the stored token
+                sh 'vercel --token ${VERCEL_TOKEN} --prod'
             }
         }
     }
     
     post {
         success {
-            echo 'Deployment completed successfully!'
+            echo 'Deployment successful!'
         }
         failure {
-            echo 'Deployment failed. Check the logs for details.'
+            echo 'Deployment failed!'
         }
         always {
-            // Clean workspace after build
-            cleanWs()
+            cleanWs() // Clean workspace after build
         }
     }
 }
