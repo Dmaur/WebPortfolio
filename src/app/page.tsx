@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-     LEEROY JENKINS WUZ HERE again PLS WORK
+     LEEROY JENKINS WUZ HERE OMG THE BUILD AND AUTODEPLOY WORKED!
       <Landing projects={projects}/>
       
 
