@@ -5,46 +5,55 @@ pipeline {
         nodejs "node22"  // Use the name you configured in Global Tool Configuration
     }
     
+    environment {
+        // If you added the mongodb-uri credential in Jenkins
+        MONGO_URL = credentials('mongodb-uri')
+    }
+    
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the repository
                 checkout scm
             }
         }
         
         stage('Check Environment') {
             steps {
-                // Verify Node.js is available
                 sh 'node --version'
                 sh 'npm --version'
+                
+                // Create a .env.local file with the environment variables
+                sh '''
+                echo "MONGO_URL=$MONGO_URL" > .env.local
+                echo "NODE_ENV=production" >> .env.local
+                '''
+                
+                // Optional - verify env file was created (remove this in production)
+                sh 'cat .env.local || echo "Env file not created"'
             }
         }
         
         stage('Install Dependencies') {
             steps {
-                // Install project dependencies
                 sh 'npm install'
             }
         }
         
         stage('Lint') {
             steps {
-                // Run lint if your project has it configured
                 sh 'npm run lint || echo "No lint configured. Skipping."'
             }
         }
         
         stage('Build') {
             steps {
-                // Build the Next.js application
+                // During build, Next.js will use the .env.local file we created
                 sh 'npm run build'
             }
         }
         
         stage('Run Tests') {
             steps {
-                // Run the tests
                 sh 'npm run test || echo "No tests configured yet. Skipping test stage."'
             }
         }
@@ -65,7 +74,6 @@ pipeline {
             echo "Deployment failed. Check the logs for details."
         }
         always {
-            // Clean workspace after build
             cleanWs()
         }
     }
