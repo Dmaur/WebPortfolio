@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-     LEEROY JENKINS WUZ HERE
+     LEEROY JENKINS WUZ HERE again
       <Landing projects={projects}/>
       
 
