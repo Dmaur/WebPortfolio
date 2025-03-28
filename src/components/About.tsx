@@ -39,7 +39,7 @@ export default function About({ isLarge, setSiteState }: AboutProps) {
 
 
                     <div className=" mt-3 lg:mt-2 just justify-self-center flex flex-col lg:justify-between max-w-2xl">
-                        <h1 className=" mb-4 underline text-center lg:text-start lg:mb-4 text-2xl lg:text-4xl font-bold">Derrick Maurais</h1>
+                        <h1 className=" mb-4 underline text-center lg:text-start lg:mb-4 text-2xl lg:text-4xl font-bold">Derrick THE DUDE</h1>
                         <p className={`${isLarge? "ml-4" : "text-left"}`}>Soon to be 2025 NSCC Truro Web Development graduate</p>
                         <br/>
                         <p className={`${isLarge? "ml-8": "text-left"}`}>Interested in Dev-ops and back-end development</p>
