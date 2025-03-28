@@ -33,14 +33,15 @@ pipeline {
         
         // Skip the build stage since Vercel will handle this
         
-        stage('Deploy to Vercel') {
+       stage('Deploy to Vercel') {
             steps {
-                sh """
+                withCredentials([string(credentialsId: 'vercel-token', variable: 'VERCEL_TOKEN')]) {
+                    sh '''
                     echo "Deploying to Vercel..."
-                    vercel --token=\"${VERCEL_TOKEN}\" --confirm
-                """
-                sh 'echo "Deployment complete. Check Vercel dashboard for details."'
-            
+                    vercel --token="${VERCEL_TOKEN}" --confirm
+                    echo "Deployment complete. Check Vercel dashboard for details."
+                    '''
+                }
             }
         }
     }
