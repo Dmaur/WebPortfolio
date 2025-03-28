@@ -63,7 +63,7 @@ pipeline {
         
         stage('Deploy to Vercel') {
             steps {
-                https://api.vercel.com/v1/integrations/deploy/prj_JIc9pslhWv33rvDH2Pv9nQi4PxzZ/VwSyxSab7f
+                sh 'curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ/vWS_Gz5Wvs'
             }
         }
     }
