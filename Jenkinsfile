@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy to Vercel') {
             steps {
                 // Trigger Vercel deployment using deploy hook
-                sh 'curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ/vWS_Gz5Wvs'
+                sh 'curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_JIc9pslhWv33rvDH2Pv9nQi4PxzZ/Hgfxm1l4s1'
                 echo "Deployment triggered on Vercel. Check Vercel dashboard for build status."
             }
         }
