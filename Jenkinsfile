@@ -35,8 +35,10 @@ pipeline {
         
         stage('Deploy to Vercel') {
             steps {
-                // Deploy to Vercel using CLI (this will create a preview by default)
-                sh 'vercel --token $VERCEL_TOKEN --confirm'
+                sh """
+                    echo "Deploying to Vercel..."
+                    vercel --token=\"${VERCEL_TOKEN}\" --confirm
+                """
                 sh 'echo "Deployment complete. Check Vercel dashboard for details."'
             
             }
