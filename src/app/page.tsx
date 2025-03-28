@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-     Jenkins deploy test branch
+     LEEROY JENKINS WUZ HERE
       <Landing projects={projects}/>
       
 
