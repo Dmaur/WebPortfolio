@@ -68,6 +68,13 @@ pipeline {
                 }
             }
         }
+        
+        // Add a cleanup stage at the end
+        stage('Cleanup') {
+            steps {
+                cleanWs()
+            }
+        }
     }
     
     post {
@@ -77,8 +84,6 @@ pipeline {
         failure {
             echo "Pipeline failed. Check the logs for details."
         }
-        always {
-            cleanWs()
-        }
+        // Removed cleanWs from post actions and moved it to a dedicated stage
     }
 }
