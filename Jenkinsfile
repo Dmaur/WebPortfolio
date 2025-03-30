@@ -6,10 +6,11 @@ pipeline {
     }
     
     environment {
-        // Define MongoDB environment variables needed for build
-        MONGO_URL = credentials('mongo-url')
-        MONGO_DB_NAME = 'dbProjects'  // Or use credentials if needed
-        MONGO_COLLECTION_PROJECTS = 'projects'  // Or use credentials if needed
+        // Define MongoDB environment variables using credentials
+        MONGO_CREDS = credentials('mongo-url')
+        MONGO_URL = "${MONGO_CREDS}"
+        MONGO_DB_NAME = "dbProjects"  
+        MONGO_COLLECTION_PROJECTS = "projects"  
     }
     
     stages {
@@ -25,10 +26,12 @@ pipeline {
                 sh 'npm --version'
                 
                 // Verify env vars are set (but don't print sensitive values)
-                sh 'echo "Checking environment variables..."'
-                sh 'if [ -z "$MONGO_URL" ]; then echo "MONGO_URL is not set"; exit 1; fi'
-                sh 'if [ -z "$MONGO_DB_NAME" ]; then echo "MONGO_DB_NAME is not set"; exit 1; fi'
-                sh 'if [ -z "$MONGO_COLLECTION_PROJECTS" ]; then echo "MONGO_COLLECTION_PROJECTS is not set"; exit 1; fi'
+                sh '''
+                echo "Checking environment variables..."
+                if [ -z "$MONGO_URL" ]; then echo "MONGO_URL is not set"; exit 1; fi
+                if [ -z "$MONGO_DB_NAME" ]; then echo "MONGO_DB_NAME is not set"; exit 1; fi
+                if [ -z "$MONGO_COLLECTION_PROJECTS" ]; then echo "MONGO_COLLECTION_PROJECTS is not set"; exit 1; fi
+                '''
             }
         }
         
@@ -47,7 +50,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Pass environment variables to the build process
-                sh 'MONGO_URL=$MONGO_URL MONGO_DB_NAME=$MONGO_DB_NAME MONGO_COLLECTION_PROJECTS=$MONGO_COLLECTION_PROJECTS npm run build'
+                withEnv(["MONGO_URL=${MONGO_URL}", "MONGO_DB_NAME=${MONGO_DB_NAME}", "MONGO_COLLECTION_PROJECTS=${MONGO_COLLECTION_PROJECTS}"]) {
+                    sh 'npm run build'
+                }
             }
         }
         
@@ -55,26 +60,10 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'vercel-token', variable: 'VERCEL_TOKEN')]) {
                     sh '''
-                    echo "Installing Vercel CLI..."
-                    npm install -g vercel
-                    
                     echo "Deploying to Vercel..."
-                    # Create vercel.json to specify build env vars
-                    cat > vercel.json << EOF
-                    {
-                      "env": {
-                        "MONGO_URL": "${MONGO_URL}",
-                        "MONGO_DB_NAME": "${MONGO_DB_NAME}",
-                        "MONGO_COLLECTION_PROJECTS": "${MONGO_COLLECTION_PROJECTS}"
-                      },
-                      "buildCommand": "npm run build"
-                    }
-                    EOF
-                    
-                    # Deploy using Vercel CLI with token
-                    VERCEL_ORG_ID=your-org-id VERCEL_PROJECT_ID=prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ vercel --token ${VERCEL_TOKEN} --prod
-                    
-                    echo "Deployment completed. Check Vercel dashboard for details."
+                    # Use the deploy hook which is simpler and more reliable
+                    curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ/vWS_Gz5Wvs"
+                    echo "Deployment triggered. Check Vercel dashboard for status."
                     '''
                 }
             }
@@ -83,13 +72,19 @@ pipeline {
     
     post {
         success {
-            echo "Pipeline completed successfully! Vercel deployment has been triggered."
+            node {
+                echo "Pipeline completed successfully! Vercel deployment has been triggered."
+            }
         }
         failure {
-            echo "Pipeline failed. Check the logs for details."
+            node {
+                echo "Pipeline failed. Check the logs for details."
+            }
         }
         always {
-            cleanWs()
+            node {
+                cleanWs()
+            }
         }
     }
 }
