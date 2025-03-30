@@ -72,19 +72,13 @@ pipeline {
     
     post {
         success {
-            node {
-                echo "Pipeline completed successfully! Vercel deployment has been triggered."
-            }
+            echo "Pipeline completed successfully! Vercel deployment has been triggered."
         }
         failure {
-            node {
-                echo "Pipeline failed. Check the logs for details."
-            }
+            echo "Pipeline failed. Check the logs for details."
         }
         always {
-            node {
-                cleanWs()
-            }
+            cleanWs()
         }
     }
 }
