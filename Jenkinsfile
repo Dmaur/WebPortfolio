@@ -31,16 +31,28 @@ pipeline {
             }
         }
         
-        // Skip the build stage since Vercel will handle this
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
         
-       stage('Deploy to Vercel') {
+        stage('Deploy to Vercel') {
             steps {
                 withCredentials([string(credentialsId: 'vercel-token', variable: 'VERCEL_TOKEN')]) {
                     sh '''
-                    echo "Deploying to Vercel..."
+                    echo "Installing Vercel CLI..."
+                    npm install -g vercel
                     
-                    curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ/vWS_Gz5Wvs"
-                    echo "Deployment to existing project triggered. Check Vercel dashboard for details."
+                    echo "Deploying to Vercel..."
+                    # Create a .vercel/project.json file to specify project
+                    mkdir -p .vercel
+                    echo '{"projectId":"prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ","orgId":"your-org-id"}' > .vercel/project.json
+                    
+                    # Deploy using Vercel CLI with token
+                    VERCEL_ORG_ID=KdyTj6gZzry4p452ZQNC3E4Z VERCEL_PROJECT_ID=prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ vercel --token ${VERCEL_TOKEN} --prod
+                    
+                    echo "Deployment completed. Check Vercel dashboard for details."
                     '''
                 }
             }

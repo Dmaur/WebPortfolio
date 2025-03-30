@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-     is this updateing in vercel?
+     is this updating in vercel?
       <Landing projects={projects}/>
       
 
