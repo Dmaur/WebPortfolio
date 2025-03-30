@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-     LEEROY JENKINS WUZ HERE OMG THE BUILD AND AUTODEPLOY WORKED!
+     is this updateing in vercel?
       <Landing projects={projects}/>
       
 
