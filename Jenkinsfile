@@ -5,6 +5,13 @@ pipeline {
         nodejs "node22"
     }
     
+    environment {
+        // Define MongoDB environment variables needed for build
+        MONGO_URL = credentials('mongo-url')
+        MONGO_DB_NAME = 'dbProjects'  // Or use credentials if needed
+        MONGO_COLLECTION_PROJECTS = 'projects'  // Or use credentials if needed
+    }
+    
     stages {
         stage('Checkout') {
             steps {
@@ -16,6 +23,12 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'npm --version'
+                
+                // Verify env vars are set (but don't print sensitive values)
+                sh 'echo "Checking environment variables..."'
+                sh 'if [ -z "$MONGO_URL" ]; then echo "MONGO_URL is not set"; exit 1; fi'
+                sh 'if [ -z "$MONGO_DB_NAME" ]; then echo "MONGO_DB_NAME is not set"; exit 1; fi'
+                sh 'if [ -z "$MONGO_COLLECTION_PROJECTS" ]; then echo "MONGO_COLLECTION_PROJECTS is not set"; exit 1; fi'
             }
         }
         
@@ -33,7 +46,8 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'npm run build'
+                // Pass environment variables to the build process
+                sh 'MONGO_URL=$MONGO_URL MONGO_DB_NAME=$MONGO_DB_NAME MONGO_COLLECTION_PROJECTS=$MONGO_COLLECTION_PROJECTS npm run build'
             }
         }
         
@@ -45,12 +59,20 @@ pipeline {
                     npm install -g vercel
                     
                     echo "Deploying to Vercel..."
-                    # Create a .vercel/project.json file to specify project
-                    mkdir -p .vercel
-                    echo '{"projectId":"prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ","orgId":"your-org-id"}' > .vercel/project.json
+                    # Create vercel.json to specify build env vars
+                    cat > vercel.json << EOF
+                    {
+                      "env": {
+                        "MONGO_URL": "${MONGO_URL}",
+                        "MONGO_DB_NAME": "${MONGO_DB_NAME}",
+                        "MONGO_COLLECTION_PROJECTS": "${MONGO_COLLECTION_PROJECTS}"
+                      },
+                      "buildCommand": "npm run build"
+                    }
+                    EOF
                     
                     # Deploy using Vercel CLI with token
-                    VERCEL_ORG_ID=KdyTj6gZzry4p452ZQNC3E4Z VERCEL_PROJECT_ID=prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ vercel --token ${VERCEL_TOKEN} --prod
+                    VERCEL_ORG_ID=your-org-id VERCEL_PROJECT_ID=prj_1Ic9ps1hWv33rvDH2Pv9nQi4PxzZ vercel --token ${VERCEL_TOKEN} --prod
                     
                     echo "Deployment completed. Check Vercel dashboard for details."
                     '''
