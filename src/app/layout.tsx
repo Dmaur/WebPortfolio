@@ -13,7 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en">
-      <body className="bg-drab min-h-screen font-poppins m-0 text-ash_gray">
+      <body className="bg-gray-900 min-h-screen font-poppins m-0 text-ash_gray-900">
         <div className="flex-1 overflow-auto">
           {children}
           <div className="bg-ash_gray opacity-25 lg:absolute lg:bottom-3 lg:left-0 lg:mb-0 ">

@@ -6,7 +6,7 @@ export default function Feature() {
 
     return (
         <>
-           <div className="m-2 p-4 w-[50vw] mx-5 text-ash_gray-800 justify-self-center overflow-y-auto">
+           <div className="m-2 p-4 w-[60vw] h-[50vh] mx-5 text-ash_gray-800 justify-self-center overflow-y-auto">
                 <h1 className="underline mb-5 justify-self-center text-4xl font-bold">What I&apos;m Working on Now</h1>
                 <div className="">
                         <p className="mb-4">
